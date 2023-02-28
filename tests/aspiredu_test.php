@@ -29,7 +29,7 @@ use context_course;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @coversDefaultClass \block_aspiredu
  */
-class badges_test extends advanced_testcase {
+class aspiredu_test extends advanced_testcase {
     public static function setUpBeforeClass(): void {
         require_once(__DIR__ . '/../../moodleblock.class.php');
         require_once(__DIR__ . '/../block_aspiredu.php');
@@ -52,12 +52,7 @@ class badges_test extends advanced_testcase {
 
         $block = new block_aspiredu();
 
-        // If badges advanced feature is enabled, the method should return true.
-        set_config('enablebadges', true);
         $this->assertTrue($block->can_block_be_added($page));
-
-        // However, if the badges advanced feature is disabled, the method should return false.
-        set_config('enablebadges', false);
-        $this->assertFalse($block->can_block_be_added($page));
     }
 }
+

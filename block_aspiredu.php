@@ -115,6 +115,6 @@ class block_aspiredu extends block_base {
     public function can_block_be_added(moodle_page $page): bool {
         global $CFG;
 
-        return $CFG->enablebadges;
+        return true;
     }
 }
