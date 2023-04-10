@@ -42,23 +42,16 @@
  * @param int $oldversion
  * @param object $block
  */
-function xmldb_block_aspiredu_upgrade($oldversion, $block) {
-    global $CFG;
+function xmldb_block_aspiredu_upgrade(int $oldversion, $block): bool {
+    global $CFG, $DB;
 
-    // Automatically generated Moodle v3.6.0 release upgrade line.
-    // Put any upgrade step following this.
+    if ($oldversion < 2023020903) {
+        $student = $DB->get_record('role', array('shortname'=>'student'), '*', MUST_EXIST);
+        $systemcontext = context_system::instance();
 
-    // Automatically generated Moodle v3.7.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Automatically generated Moodle v3.8.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Automatically generated Moodle v3.9.0 release upgrade line.
-    // Put any upgrade step following this.
-
-    // Automatically generated Moodle v4.0.0 release upgrade line.
-    // Put any upgrade step following this.
+        assign_capability('block/aspiredu:viewiilink', CAP_PROHIBIT, $student->id, $systemcontext->id);
+        assign_capability('block/aspiredu:viewddlink', CAP_PROHIBIT, $student->id, $systemcontext->id);
+    }
 
     return true;
 }

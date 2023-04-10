@@ -91,13 +91,18 @@ class block_aspiredu extends block_base {
         if ($courseid == SITEID) {
             $courseid = null;
         }
+        $instanceid = get_config('local_aspiredu', 'instance');
+        $context = context_course::instance($instanceid, IGNORE_MISSING);
 
-        if ($instanceid = get_config('local_aspiredu', 'instance')) {
+        $hasviewdd = has_capability('block/aspiredu:viewddlink', $context);
+        $hasviewii = has_capability('block/aspiredu:viewiilink', $context);
+
+        if (($hasviewdd || $hasviewii) && ($instanceid)) {
             $links = [];
             $instructorinsighturl = new moodle_url('/local/aspiredu/aspiredu.php',['id' => $instanceid, 'product' => 'ii']);
             $dropoutdetectiveurl = new moodle_url('/local/aspiredu/aspiredu.php',['id' => $instanceid, 'product' => 'dd']);
-            $links[] = html_writer::link($instructorinsighturl, get_string('instructorinsight', 'local_aspiredu'));
-            $links[] = html_writer::link($dropoutdetectiveurl, get_string('dropoutdetective', 'local_aspiredu'));
+            $links[] = $hasviewii ? html_writer::link($instructorinsighturl, get_string('instructorinsight', 'local_aspiredu')) : '';
+            $links[] = $hasviewdd ? html_writer::link($dropoutdetectiveurl, get_string('dropoutdetective', 'local_aspiredu')) : '';
             $this->content->text = html_writer::alist($links, array('class'=>'list'));
         } else {
             $this->content->text .= get_string('nothingtodisplay', 'block_aspiredu');

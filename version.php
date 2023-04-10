@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2023020900;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->version   = 2023031700;        // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2022041200;        // Requires this Moodle version.
 $plugin->component = 'block_aspiredu';
 $plugin->dependencies = [
-    'local_aspiredu' => 2023020900 // The Bar enrolment plugin version 2014020300 or higher must be present.
+    'local_aspiredu' => 2023020900
 ];

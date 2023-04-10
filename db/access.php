@@ -38,7 +38,27 @@ $capabilities = array(
                 'captype'      => 'read',
                 'contextlevel' => CONTEXT_SYSTEM,
                 'archetypes'   => array(
-                        'user' => CAP_ALLOW,
+                    'user' => CAP_ALLOW,
+                ),
+                'clonepermissionsfrom' => 'moodle/my:manageblocks'
+        ),
+        'block/aspiredu:viewddlink' => array(
+                'captype'      => 'read',
+                'contextlevel' => CONTEXT_SYSTEM,
+                'archetypes'   => array(
+                    'student' => CAP_PROHIBIT,
+                    'user' => CAP_PROHIBIT,
+
+                ),
+                'clonepermissionsfrom' => 'moodle/my:manageblocks'
+        ),
+        'block/aspiredu:viewiilink' => array(
+                'captype'      => 'read',
+                'contextlevel' => CONTEXT_SYSTEM,
+                'archetypes'   => array(
+                    'student' => CAP_PROHIBIT,
+                    'user' => CAP_PROHIBIT,
+
                 ),
                 'clonepermissionsfrom' => 'moodle/my:manageblocks'
         ),

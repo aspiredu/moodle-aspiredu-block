@@ -24,8 +24,10 @@
  */
 
 $string['pluginname'] = 'AspirEDU reports access';
-$string['numbadgestodisplay'] = 'Number of latest badges to display';
-$string['nothingtodisplay'] = 'You have no badges to display';
+$string['numbadgestodisplay'] = 'Number of links to display';
+$string['nothingtodisplay'] = 'You have no reports to display';
 $string['aspiredu:addinstance'] = 'Add a new AspirEDU links block';
 $string['aspiredu:myaddinstance'] = 'Add a new AspirEDU links block to Dashboard';
-$string['privacy:metadata'] = 'The Latest badges block only shows data stored in other locations.';
+$string['aspiredu:viewddlink'] = 'User can view Dropout Detective link';
+$string['aspiredu:viewiilink'] = 'User can view Instructor Insight link';
+$string['privacy:metadata'] = 'The Aspiredu Links block only shows data stored in other locations.';
